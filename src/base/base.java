@@ -11,23 +11,23 @@ public class base {
 * 设置等待元素超时时间
 *
 * */
-    public void setimplicitlyWait(int time) {
-        driver.get_driver().manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+    public static void setimplicitlyWait(int time) {
+        driver.get_driver(Thread.currentThread().getId()).manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 
     }
 /*
 * 设置页面页面加载超时时间
 *
 * */
-    public void setpageLoadTimeout(int time) {
-        driver.get_driver().manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
+    public static void setpageLoadTimeout(int time) {
+        driver.get_driver(Thread.currentThread().getId()).manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
 
     }
 /*
 * 设置全屏
 * */
-    public void setMaxScreen() {
-        driver.get_driver().manage().window().maximize();
+    public static void setMaxScreen() {
+        driver.get_driver(Thread.currentThread().getId()).manage().window().maximize();
 
 
     }
@@ -35,16 +35,20 @@ public class base {
     /*
   * 关闭当前窗口
   */
- public  void close(){
-     driver.get_driver().close();
+ public static void close(){
+     try {
+         driver.get_driver(Thread.currentThread().getId()).close();
+     } catch (Exception e) {
+
+     }
 
  }
 
     /*
  * 关闭所有窗口
  */
-    public  void quit(){
-        driver.get_driver().quit();
+    public static void quit(){
+        driver.get_driver(Thread.currentThread().getId()).quit();
 
     }
 

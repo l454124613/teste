@@ -8,7 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
  */
 public class js {
     public  void executeScript(String Script){
-        JavascriptExecutor d= (JavascriptExecutor)driver.get_driver();
+        JavascriptExecutor d= (JavascriptExecutor)   driver.get_driver(Thread.currentThread().getId());
         d.executeScript(Script);
 
     }

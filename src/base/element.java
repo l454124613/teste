@@ -10,7 +10,9 @@ import org.openqa.selenium.WebElement;
 public class element {
 
    static WebElement find(By by){
-      return  driver.get_driver().findElement(by);
+
+     //  System.out.println(new  driver().get_driver());
+      return driver.get_driver(Thread.currentThread().getId()).findElement(by);
 
     }
 
