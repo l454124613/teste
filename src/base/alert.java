@@ -8,7 +8,7 @@ import org.openqa.selenium.Alert;
  *
  */
 public class alert {
-    private Alert alert= driver.get_driver().switchTo().alert();
+    private Alert alert= driver.get_driver(Thread.currentThread().getId()).switchTo().alert();
 /*
 * 同意或确认
 * */

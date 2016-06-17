@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 public class mouse {
     WebElement ele;
     WebElement ele2;
-    Actions actions = new Actions(driver.get_driver());
+    Actions actions = new Actions(driver.get_driver(Thread.currentThread().getId()));
 
     public mouse(By by) {
         ele = element.find(by);

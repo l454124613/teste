@@ -9,20 +9,20 @@ import java.util.Set;
  */
 public class Switch {
     public  static  void defaultContent(){
-        driver.get_driver().switchTo().defaultContent();
+        driver.get_driver(Thread.currentThread().getId()).switchTo().defaultContent();
 
     }
 
     public  static  void frame(By by){
-        driver.get_driver().switchTo().frame(element.find(by));
+        driver.get_driver(Thread.currentThread().getId()).switchTo().frame(element.find(by));
 
     }
 
     public  static  boolean window(String title_name){
-       Set<String> s= driver.get_driver().getWindowHandles();
+       Set<String> s=driver.get_driver(Thread.currentThread().getId()).getWindowHandles();
 
         for(String sa:s){
-           if( driver.get_driver().switchTo().window(sa).getTitle().equals(title_name)){
+           if( driver.get_driver(Thread.currentThread().getId()).switchTo().window(sa).getTitle().equals(title_name)){
                return  true;
            }
         }
