@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="selenium-server-standalone-2.46.0" level="project" />
     <orderEntry type="library" name="poi-3.12-beta1-20150228" level="project" />
+    <orderEntry type="library" name="jackson-all-1.9.11" level="project" />
   </component>
 </module>
