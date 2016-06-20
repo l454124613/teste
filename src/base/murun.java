@@ -15,8 +15,13 @@ public class murun {
    public LinkedList<String>  qu=new LinkedList<>();
   public   int ssk=20;
     public  static  int num=0;
+    ExecutorService threadPool = Executors.newCachedThreadPool();
+    public boolean che(){
+    return   threadPool.isTerminated();
+
+    }
     public void run() throws InterruptedException {
-        ExecutorService threadPool = Executors.newCachedThreadPool();
+
 
         while (qu.size()>0){
            int a= ((ThreadPoolExecutor)threadPool).getActiveCount();

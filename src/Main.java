@@ -13,8 +13,8 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
      //   System.setProperty("selenium-server-standalone-2.46.0.jar","D:\\teste\\lib\\selenium-server-standalone-2.46.0.jar");
-        String a1="java -jar lib/selenium-server-standalone-2.46.0.jar -port 4444 -role hub  -maxSession 40";
-        String a2="java -jar lib/selenium-server-standalone-2.46.0.jar   -Dwebdriver.chrome.driver=\"D:/teste/driver/chromedriver.exe\" -role node  -hub http://localhost:4444/grid/register  -browser browserName=chrome,maxInstances=5 -maxSession 30 ";
+        String a1="java -jar lib/selenium-server-standalone-2.46.0.jar -port 4444 -role hub  -maxSession 50";
+        String a2="java -jar lib/selenium-server-standalone-2.46.0.jar   -Dwebdriver.chrome.driver=\"D:/teste/driver/chromedriver.exe\" -role node  -hub http://localhost:4444/grid/register  -browser browserName=chrome,maxInstances=5 -maxSession 50 ";
     //    List a= run("lib/hub.bat");
       //  List aa= run("cmd.exe /c "+a2);
     //    System.out.println(a);
@@ -26,21 +26,38 @@ public class Main {
 //            m.qu.add(String.valueOf(i));
 //        }
 //        m.run();
-        Thread t1=new Thread(new Cmd(a1));
+
+        Cmd c1=new Cmd(a1);
+        Cmd c2=new Cmd(a2);
+        Thread t1=new Thread(c1);
         t1.start();
         Thread.sleep(3000);
-       Thread t2=new Thread(new Cmd(a2));
+       Thread t2=new Thread(c2);
         t2.start();
         murun m= new murun();
 
-        for (int i = 0; i <7 ; i++) {
+        for (int i = 0; i <3 ; i++) {
 
             m.qu.add(String.valueOf(i));
         }
         Thread.sleep(3000);
         m.run();
-//        t1.interrupt();
-//        t2.interrupt();
+
+//        for (int i = 0; i <10 ; i++) {
+//            Thread.sleep(3000);
+//            m.che();
+//        }
+        while (true){
+            if (m.che()) {
+              //  System.out.println(m.che());
+                t1.interrupt();
+                t2.interrupt();
+                c1.des();
+                c2.des();
+                break;
+            }
+        }
+
     }
 
 

@@ -36,11 +36,16 @@ private  String cmd="";
     public void run() {
         running(cmd);
     }
-
+    Process  p=null;
+    boolean reend=true;
+    public void des(){
+        p.destroy();
+        reend=false;
+    }
     public   void running(String cmd){
         Runtime rt = Runtime.getRuntime();
      //   String command = "java -jar lib/selenium-server-standalone-2.46.0.jar -port 4444 -role hub  -maxSession 40";
-        Process  p=null;
+
         try {
             p  = rt.exec(cmd );
             //获取进程的标准输入流
@@ -58,7 +63,7 @@ private  String cmd="";
                     }
                     try {
                         String line1 = null;
-                        while ((line1 = br1.readLine()) != null) {
+                        while ((line1 = br1.readLine()) != null&reend) {
                             if (line1 != null){
 
                                 System.out.println("Y:"+line1);
@@ -87,7 +92,7 @@ private  String cmd="";
                     }
                     try {
                         String line2 = null ;
-                        while ((line2 = br2.readLine()) !=  null ) {
+                        while ((line2 = br2.readLine()) !=  null &reend) {
                             if (line2 != null){
                                 System.out.println("N:"+line2);
                             }
@@ -104,9 +109,15 @@ private  String cmd="";
                     }
                 }
             }.start();
+            while (true){
+                Thread.sleep(1000);
+             //   System.out.println(reend);
+if(!reend){
+                p.destroy();
+break;}
+            }
+           // p.waitFor();
 
-            p.waitFor();
-            p.destroy();
             System.out.println("end...");
         } catch (Exception e) {
             try{
@@ -114,7 +125,9 @@ private  String cmd="";
                 p.getInputStream().close();
                 p.getOutputStream().close();
             }
-            catch(Exception ee){}
+            catch(Exception ee){
+                System.out.println(ee.getMessage());
+            }
         }
     }
 }
