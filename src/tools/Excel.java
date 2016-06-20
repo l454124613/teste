@@ -24,7 +24,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import auto_base.log;
+
 
 
 public class Excel {
@@ -432,7 +432,7 @@ public class Excel {
 
 		/**
 		 * 
-		 * @param sheetnum
+		 * @param sheetname
 		 *            表名 从1开始计数
 		 * @param rownum
 		 *            行号,从1开始计数
