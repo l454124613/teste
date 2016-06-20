@@ -1,13 +1,7 @@
-import base.murun;
+import bases.murun;
 import tools.Cmd;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
-
-import static tools.Cmd.*;
 
 public class Main {
 

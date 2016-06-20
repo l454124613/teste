@@ -1,4 +1,4 @@
-package base;
+package bases;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +21,7 @@ import java.util.Map;
 public class driver {
     private  WebDriver webDriver;
 private  static Map<Long,driver> mm =new HashMap<Long,driver>();
-    private driver() throws MalformedURLException {
+    private driver(String ... aa) throws MalformedURLException {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");//设置驱动的位置
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
       capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
@@ -30,8 +30,11 @@ private  static Map<Long,driver> mm =new HashMap<Long,driver>();
       options.addArguments("--test-type");
 
       capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"),capabilities);
-     //   webDriver=new ChromeDriver(capabilities);
+        if (aa.length>0) {
+            webDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), capabilities);
+        }else{webDriver=new ChromeDriver(capabilities);
+        }
+
     }
 
 
@@ -39,12 +42,14 @@ private  static Map<Long,driver> mm =new HashMap<Long,driver>();
 
     return mm.get(a).webDriver;
     }
-
-    public  static   void  connect(String url){
+/*
+url:网站连接,islocal 只要填写就调用远程服务，以后要改的，现在暂时这样
+ */
+    public  static   void  connect(String url,String ...islocal){
            long a= Thread.currentThread().getId();
         driver d= null;
         try {
-            d = new driver();
+            d = new driver(islocal);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

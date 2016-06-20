@@ -1,4 +1,6 @@
-package base;
+package bases;
+
+import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,6 +9,13 @@ import java.util.concurrent.TimeUnit;
  * 页面基本数据
  */
 public class base {
+/*
+页面操作
+ */
+
+    public  static WebDriver.Navigation navigation(){
+       return driver.get_driver(Thread.currentThread().getId()).navigate();
+    }
 /*
 * 设置等待元素超时时间
 *

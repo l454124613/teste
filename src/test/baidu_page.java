@@ -1,16 +1,17 @@
 package test;
 
-import base.base;
-import base.button;
-import base.driver;
-import base.input;
+
+import bases.base;
+import bases.button;
+import bases.driver;
+import bases.input;
 import org.openqa.selenium.By;
 
 /**
  * Created by lixuecheng on 2016/6/16.
  */
-public  class page {
-    public  static  void con(){
+public    class baidu_page extends bases.page {
+    public  static  void connect(){
         driver.connect("www.baidu.com");
         base.setMaxScreen();
     }
@@ -20,7 +21,5 @@ public  class page {
     public  static input in(){
         return  new input(By.id("kw"));
     }
-    public static void close(){
-base.quit();
-    }
+
 }
