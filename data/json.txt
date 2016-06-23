@@ -1,6 +1,6 @@
 page: {
 	name: baidu_page,
-	element: [button: {
+	element: {button: {
 		type: id,
 		value: su,
 		name: 百度一下,
@@ -28,11 +28,11 @@ page: {
 		type: id,
 		value: 1231,
 		name: 选择xxx
-	}]
+	}}
 },
 page: {
 	name: baidu_page,
-	element: [button: {
+	element: {button: {
 		type: id,
 		value: su,
 		name: 百度一下,
@@ -60,5 +60,5 @@ page: {
 		type: id,
 		value: 1231,
 		name: 选择xxx
-	}]
+	}}
 }
