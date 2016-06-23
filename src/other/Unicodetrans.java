@@ -1,9 +1,9 @@
-package test;
+package other;
 
 /**
  * Created by lixuecheng on 2016/6/20.
  */
-public class t1 {
+public class Unicodetrans {
     public static String convertUnicode(String ori){
         char aChar;
         int len = ori.length();
@@ -69,13 +69,13 @@ public class t1 {
         }
         return outBuffer.toString();}
 
-    public static void main(String[] args) {
-    String aa2=t1.convert("123ca事,./情");
-        System.out.println(aa2);
-
-       String a= t1.convertUnicode(aa2);
-        System.out.println(a);
-    }
+//    public static void main(String[] args) {
+//    String aa2=t1.convert("123ca事,./情");
+//        System.out.println(aa2);
+//
+//       String a= t1.convertUnicode(aa2);
+//        System.out.println(a);
+//    }
 
 
     /**
