@@ -7,9 +7,10 @@ import org.openqa.selenium.WebElement;
  * Created by lixuecheng on 2016/6/16.
  * 选择相关
  */
-public class chioce {
+public class chioce extends  Widget{
     WebElement ele;
-    public chioce(By by) {
+    public chioce(By by,String... a) {
+        super(a);
         ele = element.find(by);
     }
     public void click() {

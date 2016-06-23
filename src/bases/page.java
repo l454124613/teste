@@ -17,12 +17,7 @@ public   class page {
         base.close();
     }
 
-    /**
-     * 连接网址
-     */
-    public  static    void connect(){
 
-    }
 
     /**
      *页面刷新

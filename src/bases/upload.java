@@ -6,9 +6,10 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by lixuecheng on 2016/6/16.
  */
-public class upload {
+public class upload  extends Widget{
     WebElement ele;
-    public upload(By by) {ele = element.find(by);
+    public upload(By by,String... a) {
+        super(a);ele = element.find(by);
     }
 
 

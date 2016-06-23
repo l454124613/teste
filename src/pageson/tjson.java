@@ -51,6 +51,7 @@ public class tjson {
                         s1.toString().equalsIgnoreCase("input")||
                         s1.toString().equalsIgnoreCase("chioce")||
                         s1.toString().equalsIgnoreCase("select")||
+                             s1.toString().equalsIgnoreCase("text")||
                         s1.toString().equalsIgnoreCase("upload")){
                     lp.get(lp.size()-1).add(new eleson());
                     lp.get(lp.size()-1).getL().get(lp.get(lp.size()-1).getL().size()-1).setOp(s1.toString());

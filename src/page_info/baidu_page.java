@@ -1,21 +1,21 @@
-package test;
+package page_info;
 
 
-import bases.base;
+
 import bases.button;
-import bases.driver;
+import bases.chioce;
 import bases.input;
+import bases.select;
+import bases.text;
+import bases.upload;
 import org.openqa.selenium.By;
 
-/**
- * Created by lixuecheng on 2016/6/16.
- */
+
 public    class baidu_page extends bases.page {
-    public  static  void connect(){
-        driver.connect("www.baidu.com");
-        base.setMaxScreen();
-    }
+
     public  static button baidu(){
+
+
       return   new button(By.id("su"));
     }
     public  static input in(){

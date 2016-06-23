@@ -8,9 +8,10 @@ import org.openqa.selenium.support.ui.Select;
 /**
  * Created by lixuecheng on 2016/6/16.
  */
-public class select {
+public class select extends  Widget {
     WebElement ele;
-    public select(By by) {
+    public select(By by, java.lang.String... a) {
+        super(a);
         ele = element.find(by);
 
     }

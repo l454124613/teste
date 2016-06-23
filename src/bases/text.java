@@ -6,12 +6,12 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by lixuecheng on 2016/6/16.
  */
-public class text {
+public class text extends  Widget {
     WebElement ele;
     String attr;
 
-    public text(By by) {
-
+    public text(By by,String...a) {
+        super(a);
         ele = element.find(by);
 
     }
