@@ -1,6 +1,7 @@
-package test;
+package pageson;
 
 
+import pageson.pageson;
 import tools.Text;
 
 import java.io.IOException;
@@ -11,16 +12,17 @@ import java.util.*;
  * Created by lixuecheng on 2016/6/22.
  */
 public class tjson {
-    public static void main(String[] args) throws IOException {
-        List<String> a=Text.from("data/json.txt");
+    public   List<pageson> getpageinfo(String file) throws IOException {
+      //  long t1=System.currentTimeMillis();
+        List<String> a=Text.from(file);  //"data/json.txt"
         StringBuffer s=new StringBuffer();
         for (String c:a
              ) {
         s.append(c);
         }
-        String  w=s.toString().replace(" ","").replace("\t","").replace("：",":").replace("，",",").replace("[","{").replace("]","}");
-        System.out.println(w);
-
+        String  w=s.toString().replace(" ","").replace("\t","").replace("：",":").replace("，",",");//.replace("[","{").replace("]","}").replace("【","{").replace("】","}")
+       // System.out.println(w);
+      //  long t2=System.currentTimeMillis();
         char[] ca= w.toCharArray();
         StringBuffer s1=new StringBuffer();
         int ceng=0;
@@ -145,106 +147,14 @@ else     if (ceng==4){
                s1.append(ca[i]);
            }
         }
-        System.out.println(lp);
 
 
 
-     //   char[] ca= w.toCharArray();
-    //    int a1=0;
-     //   StringBuffer  back=new StringBuffer();
-      //  System.out.println(Arrays.toString(w.split(",")));
-
-//
-//
-//       char[] ca= w.toCharArray();
-//        StringBuffer  back=new StringBuffer();
-//        Map<String,Integer> m1=new HashMap();
-//        Stack<String > stack = new Stack();
-//        int ceng=0;
-//        Map<String,String> m2=new HashMap();
-//        Map<String,String> m3=new HashMap();
-//        for (char cc:ca
-//             ) {
-//
-//            if(cc==':'){
-//            stack.push(back.toString());
-//            back.setLength(0);
-//            }
-//            else if (cc=='{'){
-//                m1.put(stack.peek(),ceng++);
-//
-//
-//            }
-//
-//            else  if (cc==','){
-//                m2.put(stack.peek(),back.toString());
-//                back.setLength(0);
-//            }
-//            else   if(cc=='['){
-//                m1.put(stack.peek(),ceng++);
-//            }
-//            else if(cc=='}'){
-//                if(back.length()>0){
-//                    m2.put(stack.peek(),back.toString());
-//                    back.setLength(0);
-//                    ceng--;
-//                }else {
-//                    ceng--;
-//                }
-//
-//            }
-//            else if(cc==']'){
-//                if(back.length()>0){
-//                    m2.put(stack.peek(),back.toString());
-//                    back.setLength(0);
-//                    ceng--;
-//                }else {
-//                    ceng--;
-//                }
-//            }
-//            else  back.append(cc);
-//
-//
-//
-//        }
-//        System.out.println(m2);
-//        System.out.println(m1);
-//        System.out.println(stack);
 
 
-//        w=w.replace(":{","\n").replace("},","\n");
-//        System.out.println(w);
-
-
+   return lp; }
 
 
     }
-List<pageson> lp;
-    eleson e;
-    Object aa(String a){
-         switch(a) {
-             case "element" :return new pageson();
-             case "button" :
-             case "input":
-             case "chioce" :
-             case "select":
-             case "upload":
-                 return  new eleson();
 
 
-
-        }
-
-        return null;
-    }
-    void bb(String a,String b){
-switch(a){
-    case "type":e.setType(b);break;
-    case "value":e.setValue(b);break;
-    case "name":e.setName(b);break;
-    case "switch": break;
-}
-
-    }
-
-}
