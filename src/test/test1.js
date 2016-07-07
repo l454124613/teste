@@ -1,4 +1,99 @@
 var b=document.getElementsByClassName("no3");
+var t1=document.getElementById("t1");
+
+t1.addEventListener("click",function(){
+show('light');
+
+});
+var sw =document.getElementById("ck1");
+sw.addEventListener("click",function(){
+if(sw.checked){
+document.getElementById("switch").style.display='block';
+}else{
+document.getElementById("switch").style.display='none';
+}
+
+  });
+
+var add =document.getElementById("push");
+add.addEventListener("click",function(){
+var s1=document.getElementById("s1");
+var in1=document.getElementById("input1");
+var s2=document.getElementById("s2");
+var in2=document.getElementById("input2");
+var sw2="yes";
+var s11="";
+var s21="";
+if(sw.checked){
+
+}else{
+sw2="NO";
+}
+switch (s1.value)
+{
+case "1":
+  s11="id";
+  break;
+case "2":
+s11="className";
+  break;
+case "3":
+s11="cssSelector";
+  break;
+case "4":
+  s11="linkText";
+  break;
+case "5":
+  s11="name";
+  break;
+case "6":
+  s11="tagName";
+  break;
+  case "7":
+   s11="partialLinkText";
+    break;
+      case "8":
+       s11="xpath";
+        break;
+}
+switch (s2.value)
+{
+case "1":
+  s21="button";
+  break;
+case "2":
+s21="input";
+  break;
+case "3":
+s21="chioce";
+  break;
+case "4":
+  s21="select";
+  break;
+case "5":
+  s21="upload";
+  break;
+case "6":
+  s21="text";
+  break;
+
+}
+if(in1.value!=null&&in1.value!=""&&in2.value!=null&&in2.value!=""&&s21!=""&&s11!=""){
+var t =document.getElementById("t").getElementsByTagName("tbody")[0].innerHTML;
+//alert(t);
+//t
+var t2=t+"<tr><td width=\"50px\" nowrap>"+s21+"</td><td width=\"100px\" nowrap>"+s11+"</td><td nowrap>"+in1.value+"</td><td nowrap>"+in2.value+"</td><td width=\"50px\" nowrap>"+sw2+"</td><td width=\"100px\" nowrap>$100</td></tr>";
+document.getElementById("t").innerHTML=t2;
+s1.value="1";
+s2.value="1";
+in1.value=null;
+in2.value=null;
+hide('light');
+}else{
+alert("请输入对应的值");
+}
+
+});
 /*var linode=document.getElementsByTagName("li");
 for(i=0;i<linode.length;i++){
 linode[i].addEventListener("dblclick",function(){
@@ -7,7 +102,18 @@ alert("double");
 });
 }*/
 
-
+function show(tag){
+ var light=document.getElementById(tag);
+ var fade=document.getElementById('fade');
+ light.style.display='block';
+ fade.style.display='block';
+ }
+function hide(tag){
+ var light=document.getElementById(tag);
+ var fade=document.getElementById('fade');
+ light.style.display='none';
+ fade.style.display='none';
+}
 
 
 var arrayObj = new Array();
