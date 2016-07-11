@@ -10,6 +10,9 @@ public class upload  extends Widget{
     WebElement ele;
     public upload(By by,String... a) {
         super(a);ele = element.find(by);
+        if(isframe()){
+            switchDefaultContent();
+        }
     }
 
 

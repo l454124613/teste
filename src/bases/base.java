@@ -61,4 +61,25 @@ public class base {
 
     }
 
+    /**
+     * 输入js脚本
+     * @param Script
+     */
+    public static  void  js(String Script){
+        new js().executeScript(Script);
+    }
+
+    /**
+     * 键盘操作
+     * @param keys
+     */
+    public  static  void keyboard(String keys){
+        new keyboard().sendkeys(keys);
+
+    }
+
+    public  static  mouse mouse(){
+        return  new mouse();
+    }
+
 }

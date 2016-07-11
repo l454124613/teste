@@ -11,6 +11,9 @@ public class input extends Widget{
     public input(By by ,String... a) {
         super(a);
         ele = element.find(by);
+        if(isframe()){
+            switchDefaultContent();
+        }
     }
     public boolean isEnabled() {
         return ele.isEnabled();

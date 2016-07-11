@@ -13,7 +13,9 @@ public class button extends Widget {
     public button(By by, String...t) {
         super(t);
         ele = element.find(by);
-
+        if(isframe()){
+            switchDefaultContent();
+        }
     }
 
     public void click() {

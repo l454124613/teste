@@ -1,5 +1,7 @@
 package test;
 
+import bases.base;
+import bases.driver;
 import bases.murun;
 import page_info.baidu_page;
 
@@ -9,10 +11,13 @@ import page_info.baidu_page;
 public class run implements Runnable {
     public static  void main(String[] args) throws InterruptedException {
    // baidu_page.connect();
+        driver.connect("www.baidu.com");
+       base .setMaxScreen();
         baidu_page.in().sendkeys("niahoa按时");
        // baidu_page.baidu();
 
        // baidu_page.quit();
+      //  System.out.println(baidu_page.baidu().isEnabled());
        baidu_page.baidu().click();
         baidu_page2.link().click();
       //  System.out.println("ok");
@@ -28,6 +33,6 @@ public class run implements Runnable {
         baidu_page.baidu();
         baidu_page.quit();
         System.out.println("ok");
-        murun.num++;
+     //   murun.num++;
     }
 }

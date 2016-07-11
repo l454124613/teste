@@ -13,12 +13,12 @@ import org.openqa.selenium.By;
 
 public    class baidu_page extends bases.page {
 
-    public  static button baidu(){
+    public static   button baidu(){
 
 
       return   new button(By.id("su"));
     }
-    public  static input in(){
+    public static   input in(){
         return  new input(By.id("kw"));
     }
 

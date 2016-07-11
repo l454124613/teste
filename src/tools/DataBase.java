@@ -18,12 +18,37 @@ public class DataBase {
 
 	public DataBase() throws Exception {
 		try {
-			Properties.pro_name="config.properties";
+			Properties.pro_name="data/config.properties";
 			Class.forName(Properties.readOne("sqlname"));// 指定连接类型
 
 			conn = DriverManager.getConnection(Properties.readOne("sqlurl"),
-					Properties.readOne("sqlusername"), Properties.readOne("sqlusername"));// 获取连接
+					Properties.readOne("sqlusername"), Properties.readOne("sqluserpassword"));// 获取连接
 		
+		} catch (Exception e) {
+			throw new Exception("配置不正确");
+		}
+	}
+
+	static void  init() throws Exception {
+		try {
+			Properties.pro_name="data/config.properties";
+			Class.forName(Properties.readOne("sqlname"));// 指定连接类型
+
+			conn = DriverManager.getConnection(Properties.readOne("sqlurl"),
+					Properties.readOne("sqlusername"), Properties.readOne("sqluserpassword"));// 获取连接
+
+		} catch (Exception e) {
+			throw new Exception("配置不正确");
+		}
+	}
+	static void  init(int i) throws Exception {
+		try {
+			Properties.pro_name="data/config.properties";
+			Class.forName(Properties.readOne("sqlname"+String.valueOf(i)));// 指定连接类型
+			//System.out.println("sqlname"+String.valueOf(i));
+			conn = DriverManager.getConnection(Properties.readOne("sqlurl"+String.valueOf(i)),
+					Properties.readOne("sqlusername"+String.valueOf(i)), Properties.readOne("sqluserpassword"+String.valueOf(i)));// 获取连接
+
 		} catch (Exception e) {
 			throw new Exception("配置不正确");
 		}
@@ -51,9 +76,16 @@ public class DataBase {
 		return res;
 	}
 	
-	public  static List<Map<String, Object>> select(String sql) {
+	public  static List<Map<String, Object>> select(String sql,int ...a) throws Exception {
+		if(a.length==1){
+		//	System.out.println(a[0]);
+			init(a[0]);
+		}else {
+		//	System.out.println("??");
+		init();}
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		try {
+		//	System.out.println(sql);
 			pst = conn.prepareStatement(sql);// 准备执行语句
 			 ResultSet ret = pst.executeQuery();// 执行语句，得到结果集
 			java.sql.ResultSetMetaData md = ret.getMetaData(); // 得到结果集(rs)的结构信息，比如字段数、字段名等

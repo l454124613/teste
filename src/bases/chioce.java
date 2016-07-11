@@ -12,6 +12,9 @@ public class chioce extends  Widget{
     public chioce(By by,String... a) {
         super(a);
         ele = element.find(by);
+        if(isframe()){
+            switchDefaultContent();
+        }
     }
     public void click() {
         ele.click();

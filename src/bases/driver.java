@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import tools.Cmd;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -62,6 +63,35 @@ url:网站连接,islocal 只要填写就调用远程服务，以后要改的，�
 
         }
     }
+    static  Thread t1;
+    static Thread t2;
+    static Cmd c1;
+    static   Cmd c2;
+public  static  void start() throws InterruptedException {
+    String a1="java -jar lib/selenium-server-standalone-2.46.0.jar -port 4444 -role hub  -maxSession 50";
+    String a2="java -jar lib/selenium-server-standalone-2.46.0.jar   -Dwebdriver.chrome.driver=\"D:/teste/driver/chromedriver.exe\" " +
+            "-role node  -hub http://localhost:4444/grid/register  -browser browserName=chrome,maxInstances=5 -maxSession 50 ";
 
 
+     c1=new Cmd(a1);
+     c2=new Cmd(a2);
+     t1=new Thread(c1);
+    t1.start();
+    Thread.sleep(3000);
+     t2=new Thread(c2);
+    t2.start();
+}
+    public static void close(){
+        while (true){
+            //TODO
+        //    if (m.che()) {
+                //  System.out.println(m.che());
+                t1.interrupt();
+                t2.interrupt();
+                c1.des();
+                c2.des();
+                break;
+       //     }
+        }
+    }
 }

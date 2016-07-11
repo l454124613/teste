@@ -13,7 +13,9 @@ public class select extends  Widget {
     public select(By by, java.lang.String... a) {
         super(a);
         ele = element.find(by);
-
+        if(isframe()){
+            switchDefaultContent();
+        }
     }
 
     public boolean isEnabled() {

@@ -13,7 +13,9 @@ public class text extends  Widget {
     public text(By by,String...a) {
         super(a);
         ele = element.find(by);
-
+        if(isframe()){
+            switchDefaultContent();
+        }
     }
 
     public text(By by, String attr) {

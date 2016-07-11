@@ -1,5 +1,7 @@
 package bases;
 
+
+
 /**
  * Created by lixuecheng on 2016/6/20.
  */
@@ -40,5 +42,20 @@ public   class page {
      public static  void back(){
          base.navigation().back();
      }
+
+    /**
+     * 获取页面
+     * @param clazz
+     * @param <T>
+     * @return
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     * @throws ClassNotFoundException
+     */
+    public static <T> T get_page(Class<T> clazz) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+
+            return  clazz.newInstance();
+
+    }
 
 }
